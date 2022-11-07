@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FILTERS</title>
+    <link rel="stylesheet" href="./filter.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+    <div class="container">
+        <div class="container-1" id="slide">
+            <select class="dropdown"  onchange="setfilters('category',this.value), filter()">
+                <option value="">select Category</option>
+                <option value="food">food</option>
+                <option value="dairy">dairy</option>
+                <option value="drink">drink</option>
+            </select>
+            <input type="number" id="quantity" onkeyup="setfilters('quantity',this.value), filter()" placeholder = "Enter Quantity" class="dropdown" >
+         <div class="filter_pricerange">
+            <h2>SELECT PRICE RANGE</h2>
+            MIN
+            <p class="price">
+                <span>0</span>
+                <input type="range" min="0" max="100" value="0" id="minPrice"
+                onchange="setfilters('minPrice',this.value), filter()" class="dropdown no_pad">
+                <span>100</span>
+            </p>
+
+            MAX
+            <p class="price">
+                <span id="showMaxPrice">0</span>
+                <input type="range" min="0" max="100" value="0" id="maxPrice" onchange="setfilters('maxPrice',this.value), filter()" class="dropdown no_pad">
+                <span>100</span>
+            </p>
+          </div>
+          <button class="btn" onclick="filter()">FILTER</button>
+
+        </div>
+        <div class="container-2">
+            <div class="header">
+                <h1 class="header_tittle">
+                    ALL PRODUCTS
+                </h1>
+                <button class="btn" onclick="openSlide()">FILTER</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Names</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Pic</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script src="filter.js"></script>
+
+</body>
+
+</html>
